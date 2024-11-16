@@ -8,10 +8,29 @@ _d.Department of Pediatric Dentistry, Shanghai Ninth People’s Hospital, Shangh
 _e.Department of Dentistry, Shanghai East Hospital Affiliated to Tongji University, Shanghai 200120, China._  
 _f.The Biomedical Engineering Department, Tulane University, New Orleans, LA 70118 USA._  
 
-## Introduction:
-This code repository is for our paper 'Individual Graph Representation Learning for Pediatric Tooth Segmentation from Dental CBCT' published by IEEE Transactions on Medical Imaging.
-The pipeline of the proposed segmentation framework is shown in Figure below.  
+## Introduction
+**This code repository is for our paper 'Individual Graph Representation Learning for Pediatric Tooth Segmentation from Dental CBCT' published by IEEE Transactions on Medical Imaging.**
+
+
+**The pipeline of the proposed segmentation framework is shown in Figure.A below.**     
+Our method will first segment four quadrants from a CBCT by a trained UNet. Subsequently, TSG-GCN segments teeth within each quadrant. The aggregation of teeth from the four quadrants yields the final segmentation results.   
+![](Pipeline.PNG)
+
+**In this section, we present the TSG-GCN architecture characterized by the encoder-decoder framework.**    
+It incorporates a unified encoder, a 2D projection decoder for adaptive adjacency matrix learning, and a 3D GCN-driven decoder tailored fo nuanced multi-class teeth segmentation, as depicted in Figure.B below.       
 ![](Framework.PNG)
+
+## Environments Configuration & Data Preparation
+This repository is based on PyTorch 1.12.1.  
+Clone the repository, and then install the related dependencies with pip.
+```
+git clone https://github.com/GaryNico517/TSG-GCN.git
+cd TSG-GCN
+pip install -r requirements.txt
+```
+## Training Procedure
+
+## Inference Procedure
 
 ## Supplemental Weight:
 ### nnUNet-based
@@ -21,6 +40,10 @@ a) 76 CBCT images come from https://github.com/ErdanC/Tooth-and-alveolar-bone-se
 b) 63 CBCT images come from https://ditto.ing.unimore.it/toothfairy2/  
 You can easliy download the weights from https://drive.google.com/drive/folders/1-Kkm0C5huUZu_T04ciR5hRTn7G6lZbpd?usp=drive_link
 
-## More code will be uploaded soon.
+## Citations (Updating)
+If you find this repository useful, please consider citing our paper:  
+```
+ DOI: 10.1109/TMI.2024.3501365
+```
 
 

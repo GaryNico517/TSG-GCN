@@ -4,7 +4,7 @@ _By Yusheng Liu<sup>a</sup>(lys_sjtu@sjtu.edu.cn), Shu Zhang<sup>b</sup>, Xiyi W
 _a.Department of Automation, Shanghai Jiao Tong University, Shanghai 200240, People’s Republic of China._  
 _b.Department of Pediatric Dentistry, Beijing Stomatological Hospital, Capital Medical University, Beijing 100050, China._  
 _c.Department of Oral and Maxillofacial-Head and Neck Oncology, Beijing Stomatological Hospital, Capital Medical University, Beijing 100050, China._  
-_d.Department of Pediatric Dentistry, Shanghai Ninth People’s Hospital, Shanghai 200011, China._    
+_d.Department of International Medicine, Shanghai Ninth People’s Hospital, Shanghai 200011, China._    
 _e.Department of Dentistry, Shanghai East Hospital Affiliated to Tongji University, Shanghai 200120, China._  
 _f.The Biomedical Engineering Department, Tulane University, New Orleans, LA 70118 USA._  
 

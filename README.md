@@ -9,7 +9,9 @@ _e.Department of Dentistry, Shanghai East Hospital Affiliated to Tongji Universi
 _f.The Biomedical Engineering Department, Tulane University, New Orleans, LA 70118 USA._  
 
 ## Introduction:
-This repository is for our TMI submitting paper 'Individual Graph Representation Learning for Pediatric Tooth Segmentation from Dental CBCT'.
+This code repository is for our paper 'Individual Graph Representation Learning for Pediatric Tooth Segmentation from Dental CBCT' published by IEEE Transactions on Medical Imaging.
+The pipeline of the proposed segmentation framework is shown in Figure below.  
+![](Framework.PNG)
 
 ## Supplemental Weight:
 ### nnUNet-based

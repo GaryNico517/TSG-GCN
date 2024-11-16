@@ -22,13 +22,19 @@ It incorporates a unified encoder, a 2D projection decoder for adaptive adjacenc
 
 ## Environments Configuration & Data Preparation
 This repository is based on PyTorch 1.12.1.  
-Clone the repository, and then install the related dependencies with pip.
+1. Clone the repository, and then install the related dependencies with pip.
 ```
 git clone https://github.com/GaryNico517/TSG-GCN.git
 cd TSG-GCN
 pip install -r requirements.txt
 ```
+2. Preparing your own dataset by segmenting four quadrants from CBCTs using your customized code, and relabeling the teeth as background(0), permanent(1-8), deciduous(9-13), supernumerary teeth(14) and irrelevant teeth(15).
 ## Training Procedure
+### Training Quadrant Segmentation Network
+1. Relabel the teeth in four quadrant of the full-scale CBCTs as 1, 2, 3, 4, respectively.
+2. Train the Quadrant Segmentation Network using whatever model you prefer, including 3DUNet, nnUNet, and so forth.
+### Training Topology Structure-guided Graph Convolutional Network (TSG-GCN)
+1. 
 
 ## Inference Procedure
 

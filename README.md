@@ -34,18 +34,42 @@ pip install -r requirements.txt
 1. Relabel the teeth in four quadrant of the full-scale CBCTs as 1, 2, 3, 4, respectively.
 2. Train the Quadrant Segmentation Network using whatever model you prefer, including 3DUNet, nnUNet, and so forth.
 ### Training Topology Structure-guided Graph Convolutional Network (TSG-GCN)
-1. 
-
+1. Set the experiment & dataset configuration in `Network_Configuration.py`.
+2. Easily Train TSG-GCN using the default settings.
+```
+python Network_Configuration.py --data_seed_list 1 --job_list GCN --data_split_list Child_Tooth_quadrant --GNN_model GCN --SEG_AM_DM 1,1,0 --Test_only False
+```
 ## Inference Procedure
-
-## Supplemental Weight:
-### nnUNet-based
-The training weights are for 1) Quadrant-wise Localization as well as 2) Tooth Segmentation on Quadrant-wise Data.  
-The dataset used for training is a publicly available teeth dataset, containing:  
-a) 76 CBCT images come from https://github.com/ErdanC/Tooth-and-alveolar-bone-segmentation-from-CBCT/  
-b) 63 CBCT images come from https://ditto.ing.unimore.it/toothfairy2/  
-You can easliy download the weights from https://drive.google.com/drive/folders/1-Kkm0C5huUZu_T04ciR5hRTn7G6lZbpd?usp=drive_link
-
+### Inference the Quarant-wise data using TSG-GCN
+1. Choose the weight dir and related hyperparams in `Network_Configuration.py`.  
+For example:
+```
+parser.add_argument('--checkpoint_dir', type=str, required=False, default='model/TSG-GCN')
+parser.add_argument('--model_load_path', type=str, required=False,default='model/TSG-GCN/save/best_model-1-0.1109-0.2452-0.0722-0.0000-0.0000.pth')
+parser.add_argument('--model_load', type=bool, required=False,default=True)
+```
+2. Easily Inference by executing the following instruction.
+```
+python Network_Configuration.py --data_seed_list 1 --job_list GCN --data_split_list Child_Tooth_quadrant --GNN_model GCN --SEG_AM_DM 1,1,0 --Test_only True
+```
+### Inference the full-scale CBCT data using the proposed framework
+1. Choose the weights of Quadrant Segment and Tooth Segment and related hyperparams in `pipeline/Procedure_Tooth_Parsing.py`.
+Here, we use 3DUNet as the Quadrant Segmentation Model.
+```
+    parser.add_argument('--pred_dir_QuadrantSeg', type=str, required=False,
+                        default=r'/media/ps/lys_ssd/Project/Project_Multi_Child_TMI/data_GCN/child_multi_center/Center1_sup_2/predict') # result path
+    parser.add_argument("--checkpoint_dir_QuadrantSeg", type=str, required=False,
+                        default='../result_Project/Child_Tooth_quadrant/seed1/model/3DUNet_Quadrant/save/best_model-490-0.9307,0.9326,0.9291.pth')
+    parser.add_argument('--test_dir_QuadrantSeg', type=str, required=False,
+                        default=r'/media/ps/lys_ssd/Project/Project_Multi_Child_TMI/data_GCN/child_multi_center/Center1_sup_2/data')  # test data path
+    parser.add_argument('--checkpoint_dir_ToothSeg', type=str, required=False,
+                        default=r'../result_Project/Child_Tooth_quadrant/seed1/model/TSG-GCN/save/best_model-290-0.9425-0.9409-0.9444-0.0543-0.0000.pth')
+```
+2. Easily run the whole pipeline, including quadrant-wise data segmentation, tooth segmentation as well as quadrant recombination.
+```
+cd pipeline
+python Procedure_Tooth_Parsing.py
+```
 ## Citations (Updating)
 If you find this repository useful, please consider citing our paper:  
 ```

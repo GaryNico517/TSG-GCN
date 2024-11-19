@@ -73,7 +73,17 @@ python Procedure_Tooth_Parsing.py
 ## Citations (Updating)
 If you find this repository useful, please consider citing our paper:  
 ```
- DOI: 10.1109/TMI.2024.3501365
+ @ARTICLE{10756735,
+  author={Liu, Yusheng and Zhang, Shu and Wu, Xiyi and Yang, Tao and Pei, Yuchen and Guo, Huayan and Jiang, Yuxian and Feng, Zhien and Xiao, Wen and Wang, Yu-Ping and Wang, Lisheng},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={Individual Graph Representation Learning for Pediatric Tooth Segmentation from Dental CBCT}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Pediatric tooth segmentation;spatial distribution;adjacent matrix modeling;graph convolution;cone beam computed tomography (CBCT)},
+  doi={10.1109/TMI.2024.3501365}}
+
 ```
 
 
